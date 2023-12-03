@@ -1,0 +1,43 @@
+#include <iostream>
+#include <ctime>
+#include <wchar.h>
+#include <Windows.h>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <string.h>
+#include <stdlib.h>
+#include <cstring>
+#include <conio.h>
+#include <iomanip>
+#include <process.h>
+#include <ctime>
+#include <cstdlib>
+#include <typeinfo>
+#include <fstream>
+
+
+
+using namespace std;
+class person {
+protected:
+    char name[80];
+    short age;
+public:
+    void showData() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+
+int main()
+{
+    person pers;
+    ifstream infile("PERSON.DAT", ios::binary);
+
+    infile.read(reinterpret_cast<char*>(&pers), sizeof(pers));
+    pers.showData();
+
+    return 0;
+}
